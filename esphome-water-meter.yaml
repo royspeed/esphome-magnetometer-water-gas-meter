@@ -4,7 +4,7 @@ substitutions:
   # For water one of: CCF, ft³, gal, L, m³
   # For better accuracy avoid using large units like CCF and m³.
   # You can always change the unit later in Home Assistant.
-  volume_unit: 'gal'
+  volume_unit: 'm³'
 
 packages:
   water_meter: !include
