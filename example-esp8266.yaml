@@ -3,30 +3,67 @@ esphome:
   name: water-meter
   friendly_name: Water meter
 
-esp8266:
-  board: d1_mini
-  restore_from_flash: true
+esp32:
+  # Gebruik ESP-IDF i.p.v. Arduino; USBSerial-fout oplossen.
+  board: lolin_s2_mini
+  variant: esp32s2
+#  restore_from_flash: true
+  framework:
+    type: esp-idf
+    version: recommended
 
 preferences:
   flash_write_interval: 60min
+  
+  # Enable logging
+logger:
+  level: INFO
+  #level:  VERBOSE
+
+ota:
+  password: !secret ota_password
+  platform: esphome
 
 api:
   encryption:
-    key: !secret api_encryption_key
+    key: !secret api_password
 
-ota:
-  - platform: esphome
-    password: !secret ota_password
+captive_portal:
+
+web_server:
+  port: 80
 
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
 
+substitutions:
+  friendly_name: "Gas"
+#substitutions:
+  volume_unit: 'm³'
+  i2c_scl: 35  # D1
+  i2c_sda: 33  # D2
+  # Set to false only if needed during manual calibration.
+  # Do not keep them at false since these slow down the ESP device
+  # and reduce the accuracy during high flow.
+  hide_magnetic_field_strength_sensors: 'false'
+  hide_half_rotations_total_sensor: 'false'
+#  hide_magnetic_field_strength_sensors: 'true'
+#  hide_half_rotations_total_sensor: 'true'
+
 packages:
-  # water_meter: !include
-  #   file: esphome-water-meter.yaml
-  water_meter:
-    url: https://github.com/tronikos/esphome-magnetometer-water-gas-meter
+  meter:
+    url: https://github.com/royspeed/esphome-magnetometer-water-gas-meter
     ref: main
     file: esphome-water-meter.yaml
+    # Or for gas meter:
+    # file: esphome-gas-meter.yaml
+    # Or if you are using QMC5883P instead of QMC5883L:
+    # files: [esphome-water-meter.yaml, qmc5883p.yaml]
+    # Or if you are using HMC5883L instead of QMC5883L:
+    # files: [esphome-water-meter.yaml, hmc5883l.yaml]
+    # Or if you are using MMC5603 instead of QMC5883L:
+    # files: [esphome-water-meter.yaml, mmc5603.yaml]
     refresh: 0s
+
+
