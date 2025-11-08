@@ -6,8 +6,8 @@ substitutions:
   device_icon1: 'mdi:water'
   device_icon2: 'mdi:meter-gas'
 
-  volume_unit1: 'gal'
-  volume_unit2: 'ft³'
+  volume_unit1: 'm³'
+  volume_unit2: 'm³'
 
   prefix1_name: 'Water '
   prefix1_id: 'water_'
