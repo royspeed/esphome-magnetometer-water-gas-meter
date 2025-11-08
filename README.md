@@ -6,9 +6,9 @@ TLDR; Add this to your ESPHome device configuration:
 
 ```yaml
 substitutions:
-  volume_unit: 'gal'
-  i2c_scl: GPIO5  # D1
-  i2c_sda: GPIO4  # D2
+  volume_unit: 'm³'
+  i2c_scl: 35  # D1
+  i2c_sda: 33  # D2
   # Set to false only if needed during manual calibration.
   # Do not keep them at false since these slow down the ESP device
   # and reduce the accuracy during high flow.
@@ -17,7 +17,7 @@ substitutions:
 
 packages:
   meter:
-    url: https://github.com/tronikos/esphome-magnetometer-water-gas-meter
+    url: https://github.com/royspeed/esphome-magnetometer-water-gas-meter
     ref: main
     file: esphome-water-meter.yaml
     # Or for gas meter:
@@ -31,7 +31,7 @@ packages:
     refresh: 0s
 ```
 
-<img src="https://github.com/tronikos/esphome-magnetometer-water-gas-meter/assets/9987465/9363747e-ea4d-457b-b219-90f0192fcf8d" alt="Water meter in Home Assistant" width=40%>
+<img src="https://github.com/royspeed/esphome-magnetometer-water-gas-meter/assets/9987465/9363747e-ea4d-457b-b219-90f0192fcf8d" alt="Water meter in Home Assistant" width=40%>
 
 ## Compatibility
 
@@ -55,7 +55,7 @@ converted to any engineering unit of measure for totalization, indication or pro
 
 #### Magnetometer position for water meter
 
-<img src="https://github.com/tronikos/esphome-magnetometer-water-gas-meter/assets/9987465/130f871c-dfd5-45e2-9837-b23bf8f545e7" alt="water meter sensor position" width=40%>
+<img src="https://github.com/royspeed/esphome-magnetometer-water-gas-meter/assets/9987465/130f871c-dfd5-45e2-9837-b23bf8f545e7" alt="water meter sensor position" width=40%>
 
 ### Gas meter
 
@@ -69,7 +69,7 @@ To verify compatibility install the Sensors app on your phone, place your phone 
 
 #### Magnetometer position for gas meter
 
-<img src="https://github.com/tronikos/esphome-magnetometer-water-gas-meter/assets/9987465/9d5a469f-6b92-442e-b2ec-e0e2b57eead3" alt="gas meter sensor position" width=40%>
+<img src="https://github.com/royspeed/esphome-magnetometer-water-gas-meter/assets/9987465/9d5a469f-6b92-442e-b2ec-e0e2b57eead3" alt="gas meter sensor position" width=40%>
 
 ## Hardware installation
 
@@ -106,11 +106,11 @@ SDA | D2
 
 The ethernet cable has 4 twisted pairs of wires. Use any solid wire color for the 4 above pins. Tie the 4 white wires together with the GND solid wire. You might need to use a header pin for the GND. If you use a header pin cut the 5 GND wires shorter to avoid the ball of wires I had...
 
-![magnetometer wiring](https://github.com/tronikos/esphome-magnetometer-water-gas-meter/assets/9987465/c7052171-eee1-44cb-90f4-76cad4e46334)
-![magnetometer in adhesive heat shrink tubing](https://github.com/tronikos/esphome-magnetometer-water-gas-meter/assets/9987465/0ca8c738-63c2-4d38-ae35-42bb219b88d1)
-![d1 mini wiring](https://github.com/tronikos/esphome-magnetometer-water-gas-meter/assets/9987465/b8c3df8d-8111-415b-aecc-64d9c5a290c1)
-![d1 mini lego case](https://github.com/tronikos/esphome-magnetometer-water-gas-meter/assets/9987465/6d8d85a0-b00c-4db9-9484-3b345e73f848)
-![driveway](https://github.com/tronikos/esphome-magnetometer-water-gas-meter/assets/9987465/69a47f3e-8d8f-4c2e-aec8-14cb729b48a4)
+![magnetometer wiring](https://github.com/royspeed/esphome-magnetometer-water-gas-meter/assets/9987465/c7052171-eee1-44cb-90f4-76cad4e46334)
+![magnetometer in adhesive heat shrink tubing](https://github.com/royspeed/esphome-magnetometer-water-gas-meter/assets/9987465/0ca8c738-63c2-4d38-ae35-42bb219b88d1)
+![d1 mini wiring](https://github.com/royspeed/esphome-magnetometer-water-gas-meter/assets/9987465/b8c3df8d-8111-415b-aecc-64d9c5a290c1)
+![d1 mini lego case](https://github.com/royspeed/esphome-magnetometer-water-gas-meter/assets/9987465/6d8d85a0-b00c-4db9-9484-3b345e73f848)
+![driveway](https://github.com/royspeed/esphome-magnetometer-water-gas-meter/assets/9987465/69a47f3e-8d8f-4c2e-aec8-14cb729b48a4)
 
 ## Software installation
 
@@ -137,9 +137,9 @@ The ethernet cable has 4 twisted pairs of wires. Use any solid wire color for th
       # For gas one of: CCF, ft³, m³
       # For better accuracy avoid using large units like CCF and m³.
       # You can always change the unit later in Home Assistant.
-      volume_unit: 'gal'
-      i2c_scl: GPIO5  # D1
-      i2c_sda: GPIO4  # D2
+      volume_unit: 'm³'
+      i2c_scl: 35  # D1
+      i2c_sda: 33  # D2
       # Set to false only if needed during manual calibration.
       # Do not keep them at false since these slow down the ESP device
       # and reduce the accuracy during high flow.
@@ -148,7 +148,7 @@ The ethernet cable has 4 twisted pairs of wires. Use any solid wire color for th
 
     packages:
       meter:
-        url: https://github.com/tronikos/esphome-magnetometer-water-gas-meter
+        url: https://github.com/royspeed/esphome-magnetometer-water-gas-meter
         ref: main
         file: esphome-water-meter.yaml
         # Or for gas meter:
@@ -176,7 +176,7 @@ The ethernet cable has 4 twisted pairs of wires. Use any solid wire color for th
 
     packages:
       meter:
-        url: https://github.com/tronikos/esphome-magnetometer-water-gas-meter
+        url: https://github.com/royspeed/esphome-magnetometer-water-gas-meter
         ref: main
         file: esphome-water-meter.yaml
         # Or for gas meter:
