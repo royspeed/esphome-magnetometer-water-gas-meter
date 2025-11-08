@@ -10,7 +10,7 @@ substitutions:
 
   # For water one of: CCF, ft³, gal, L, m³
   # For gas one of: CCF, ft³, m³
-  volume_unit: 'gal'
+  volume_unit: 'm³'
 
   i2c_scl: GPIO5  # D1
   i2c_sda: GPIO4  # D2
