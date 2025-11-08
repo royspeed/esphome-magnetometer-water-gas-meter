@@ -1,5 +1,7 @@
 # esphome-magnetometer-water-gas-meter [![Made for ESPHome](https://img.shields.io/badge/Made_for-ESPHome-black?logo=esphome)](https://esphome.io)
 
+Forked from tronikos/esphome-magnetometer-water-gas-meter
+
 This [ESPHome](https://esphome.io) package allows reading your water meter or gas meter using the QMC5883L or QMC5883P or HMC5883L or MMC5603, a triple-axis magnetometer.
 
 TLDR; Add this to your ESPHome device configuration:
